@@ -1,6 +1,5 @@
 package com.bignerdranch.android.geoquiz
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 
 private const val TAG = "QuizViewModel"
@@ -15,8 +14,9 @@ class QuizViewModel : ViewModel() {
         Question(R.string.question_asia, true)
     )
 
+    val hasCheatedOn = MutableList(questionBank.size, { false })
+
     var currentIndex = 0
-    var isCheater = false
 
     val currentQuestionAnswer: Boolean
         get() = questionBank[currentIndex].answer
